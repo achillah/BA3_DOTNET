@@ -1,0 +1,36 @@
+<!-- edit-enseignant.component.html -->
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Edit Enseignant</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nom:</label>
+        <input type="text" class="form-control" [(ngModel)]="enseignant.lastname" name="lastname" required>
+      </div>
+      <div class="form-group">
+        <label>Prénom:</label>
+        <input type="text" class="form-control" [(ngModel)]="enseignant.firstname" name="firstname" required>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="text" class="form-control" [(ngModel)]="enseignant.email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="activite">Activité d'apprentissage :</label>
+        <select id="activite" class="form-control" [(ngModel)]="selectedActiviteId" name="activite">
+          <option value="">Sélectionner une activité</option>
+          <option *ngFor="let activite of activiteApprentissages" [value]="activite.id">{{ activite.name }}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

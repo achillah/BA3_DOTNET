@@ -1,0 +1,39 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Edit Evaluation</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <form (ngSubmit)="onSubmit()">
+    
+      <div class="form-group">
+        <label>Session:</label>
+        <input type="text" class="form-control" [(ngModel)]="evaluation.session" name="session" required>
+      </div>
+      <div class="form-group">
+        <label>Mois:</label>
+        <input type="text" class="form-control" [(ngModel)]="evaluation.mois" name="mois" required>
+      </div>
+      <div class="form-group">
+        <label>Type:</label>
+        <input type="text" class="form-control" [(ngModel)]="evaluation.type" name="type" required>
+      </div>
+      <div class="form-group">
+        <label>Note final:</label>
+        <input type="text" class="form-control" [(ngModel)]="evaluation.noteFinal" name="noteFinal" required>
+      </div>
+      <div class="form-group">
+        <label>Pourcentage Final:</label>
+        <input type="text" class="form-control" [(ngModel)]="evaluation.pourcentageFinal" name="pourcentageFinal" required>
+      </div>
+      <div class="form-group">
+        <label>Pourcentage Remediable:</label>
+        <input type="text" class="form-control" [(ngModel)]="evaluation.pourcentageRemediable" name="pourcentageRemediable" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+  

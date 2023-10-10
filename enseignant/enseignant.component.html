@@ -1,0 +1,43 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+      <p>Enseignant PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+  </div>
+  <div class="navbar-right">
+      <button class="btn btn-gray" (click)="navigateToAddEnseignant()">Nouvel Enseignant</button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Mail</th>
+                  <th>AA</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let enseignant of enseignants">
+                  <td>{{ enseignant.lastname }}</td>
+                  <td>{{ enseignant.firstname }}</td>
+                  <td>{{ enseignant.email }}</td>
+                  <td>
+                      <ul>
+                          <li *ngFor="let activite of enseignant.listActiviteApprentissages">
+                              {{ activite.name }}
+                          </li>
+                      </ul>
+                  </td>
+                  <td>
+                    <button class="btn btn-primary" (click)="navigateToEditEnseignant(enseignant.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="onDelete(enseignant)">Delete</button>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

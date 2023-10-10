@@ -1,0 +1,48 @@
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>InfoUe PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+    <div class="navbar-right">
+      <button class="btn btn-gray" (click)="navigateToAddInfoUe()">Nouvelle InfoUe</button>
+    </div>
+  </nav>
+
+  
+  <div class="container mt-4">
+    <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+        <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Code</th>
+          <th>Orientation</th>
+          <th>Cycle</th>
+          <th>Bloc d'Etudes</th>
+          <th>Quadrimestre</th>
+          <th>Langue d'enseignement</th>
+          <th>Langue d'evaluation</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let InfoUe of infoUes">
+          <td>{{ InfoUe.name }}</td>
+          <td>{{ InfoUe.code }}</td>
+          <td>{{ InfoUe.orientation }}</td>
+          <td>{{ InfoUe.cycle }}</td>
+          <td>{{ InfoUe.blocEtude }}</td>
+          <td>{{ InfoUe.quadrimestre }}</td>
+          <td>{{ InfoUe.langue }}</td>
+          <td>{{ InfoUe.langueEvaluation }}</td>
+
+          <td>
+            <button class="btn btn-primary" (click)="navigateToEditInfoUe(InfoUe.id)">Edit</button>
+            <button class="btn btn-danger" (click)="onDelete(InfoUe)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,195 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <p>UE PAGE</p>
+  </div>
+  <div class="navbar-right">
+    <button class="btn btn-gray"  (click)="navigateToActiviteApprentissage()">Activite Apprentissage</button>
+    <button class="btn btn-gray" (click)="navigateToCapacite()">Capacite</button>
+    <button class="btn btn-gray" (click)="navigateToCompetence()">Competence</button>
+    <button class="btn btn-gray" (click)="navigateToCursus()">Cursus</button>
+    <button class="btn btn-gray" (click)="navigateToDepartement()">Departement</button>
+    <button class="btn btn-gray" (click)="navigateToEnseignant()">Enseignant</button>
+    <button class="btn btn-gray" (click)="navigateToEvaluation()">Evaluation</button>
+    <button class="btn btn-gray" (click)="navigateToInfoUe()">InfoUE</button>
+    <!-- <button class="btn btn-gray" (click)="navigateToCompetence()">Unite Etude</button> -->
+    <button class="btn btn-primary" (click)="logOut()">Log Out</button>
+  </div>
+</nav>
+
+  <h2>Créer une nouvelle Unité d'Étude</h2>
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-3">
+          <label>Nom UE:</label>
+          <select class="form-control" [(ngModel)]="selectedNom"  name="name" required>
+            <option *ngFor="let infoUe of infoUes" [value]="infoUe.name">{{ infoUe.name }}</option>
+          </select>
+       </div>
+
+       <div class="col-3">
+        <label>Code UE:</label>
+        <select class="form-control" [(ngModel)]="selectedCode" name="code" required>
+          <option *ngFor="let infoUe of infoUes" [value]="infoUe.code">{{ infoUe.code }}</option>
+        </select>
+     </div>
+
+     <div class="col-3">
+      <label>Orientation :</label>
+      <select class="form-control" [(ngModel)]="selectedOrientation" name="orientation" required>
+        <option *ngFor="let infoUe of infoUes" [value]="infoUe.orientation">{{ infoUe.orientation }}</option>
+      </select>
+      </div>
+  
+      <div class="col">
+        <label>Cycle:</label>
+        <select class="form-control" [(ngModel)]="selectedCycle" name="cycle" required>
+          <option *ngFor="let infoUe of infoUes" [value]="infoUe.cycle">{{ infoUe.cycle }}</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>Bloc d'Études:</label>
+        <select class="form-control" [(ngModel)]="selectedBlocEtude" name="blocEtude" required>
+          <option *ngFor="let infoUe of infoUes" [value]="infoUe.blocEtude">{{ infoUe.blocEtude }}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <label>Quadrimestre:</label>
+        <select class="form-control" [(ngModel)]="selectedQuadrimestre" name="quadrimestre" required>
+          <option *ngFor="let infoUe of infoUes" [value]="infoUe.quadrimestre">{{ infoUe.quadrimestre }}</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>Langue:</label>
+      <select class="form-control" [(ngModel)]="selectedLangue" name="langue" required>
+        <option *ngFor="let infoUe of infoUes" [value]="infoUe.langue">{{ infoUe.langue }}</option>
+      </select>
+      </div>
+
+      <div class="col-4">
+        <label>Langue d'Évaluation:</label>
+        <select class="form-control" [(ngModel)]="selectedLangueEvaluation" name="langueEvaluation" required>
+          <option *ngFor="let infoUe of infoUes" [value]="infoUe.langueEvaluation">{{ infoUe.langueEvaluation }}</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>Activité Apprentissage:</label>
+        <select class="form-control" [(ngModel)]="selectedActiviteApprentissages" name="activiteApprentissages" multiple required>
+          <option *ngFor="let activiteApprentissage of activiteApprentissages" [value]="activiteApprentissage.id">{{ activiteApprentissage.name }}</option>
+        </select>
+      </div>
+
+      
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <label>Capacités:</label>
+        <select class="form-control" [(ngModel)]="selectedCapacites" name="capacites" multiple required>
+          <option *ngFor="let capacite of capacites" [value]="capacite.id">{{ capacite.name }}</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>Compétences:</label>
+        <select class="form-control" [(ngModel)]="selectedCompetences" name="competences" multiple required>
+          <option *ngFor="let competence of competences" [value]="competence.id">{{ competence.name }}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <label>Cursus:</label>
+      <select class="form-control" [(ngModel)]="selectedCursusName" name="cursus" required>
+        <option *ngFor="let Cursus of cursus" [value]="Cursus.name">{{ Cursus.name }}</option>
+      </select>
+      </div>
+
+      <div class="col">
+        <label>Implantation:</label>
+      <select class="form-control" [(ngModel)]="selectedCursusImplantation" name="implantation" required>
+        <option *ngFor="let Cursus of cursus" [value]="Cursus.implantation">{{ Cursus.implantation }}</option>
+      </select>
+      </div>
+
+      <div class="col">
+        <label>Département:</label>
+      <select class="form-control" [(ngModel)]="selectedDepartement" name="name" required>
+        <option *ngFor="let departement of departements" [value]="departement.name">{{ departement.name }}</option>
+      </select>
+      </div>
+
+      <div class="col">
+        <label>Responsable UE:</label>
+      <select class="form-control" [(ngModel)]="selectedResponsable" name="lastname" required>
+        <option *ngFor="let enseignant of enseignants" [value]="enseignant.lastname">{{ enseignant.lastname }}</option>
+      </select>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <label>Titulaires AA:</label>
+      <select class="form-control" [(ngModel)]="selectedListTitulaireAA" name="lastname" multiple>
+        <option *ngFor="let enseignant of enseignants" [value]="enseignant.lastname">{{ enseignant.lastname }}</option>
+      </select>
+      </div>
+
+      <div class="col">
+        <label>Crédit:</label>
+        <input type="number" class="form-control" [(ngModel)]="selectedCredit" name="credit" required step="1">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <label>Contenu Synthétique:</label>
+        <textarea class="form-control" [(ngModel)]="selectedContenuSynthetique" name="contenuSynthetique" required></textarea>
+      </div>
+
+      <div class="col">
+        <label>Méthode d'Apprentissage:</label>
+        <textarea class="form-control" [(ngModel)]="selectedMethodeApprendtissage" name="methodeApprentissage" required></textarea>
+      </div>
+
+      <div class="col">
+        <label>Acquis d'Apprentissage:</label>
+        <textarea class="form-control" [(ngModel)]="selectedAcquis" name="acquis" required></textarea>
+      </div>
+
+      <div class="col">
+        <label>Note Finale:</label>
+        <input type="text" class="form-control" [(ngModel)]="selectedNote" name="note" required>
+      </div>
+
+    </div>
+
+  
+    <div class="col-md-12">
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+    
+
+
+  </form>
+

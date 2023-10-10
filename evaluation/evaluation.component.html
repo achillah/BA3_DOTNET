@@ -1,0 +1,44 @@
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Evaluation PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+    <div class="navbar-right">
+      <button class="btn btn-gray" (click)="navigateToAddEvaluation()">Nouvelle Evaluation</button>
+    </div>
+  </nav>
+
+  
+  <div class="container mt-4">
+    <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+        <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th>Mois</th>
+          <th>Type</th>
+          <th>Note Final</th>
+          <th>Pourcentage Final</th>
+          <th>Pourcentage Remediable</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Evaluation of evaluations">
+          <td>{{ Evaluation.session }}</td>
+          <td>{{ Evaluation.mois }}</td>
+          <td>{{ Evaluation.type }}</td>
+          <td>{{ Evaluation.noteFinal }}</td>
+          <td>{{ Evaluation.pourcentageFinal }}</td>
+          <td>{{ Evaluation.pourcentageRemediable }}</td>
+
+          <td>
+            <button class="btn btn-primary" (click)="navigateToEditEvaluation(Evaluation.id)">Edit</button>
+            <button class="btn btn-danger" (click)="onDelete(Evaluation)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
