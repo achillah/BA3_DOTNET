@@ -1,0 +1,68 @@
+/* styles.css (ou votre fichier CSS personnalisé) */
+
+/* Style pour le conteneur principal */
+.container {
+    padding-top: 60px;
+  }
+  
+  /* Style pour la navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    z-index: 999; /* Assurez-vous que la navbar est au-dessus du contenu */
+  }
+  
+  .navbar-left {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style pour les boutons */
+  button.btn-gray {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  button.btn-primary {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  button.btn-primary:focus {
+    outline: none;
+  }
+  
+  /* home.component.css */
+
+/* Vous pouvez ajouter ce style dans le fichier CSS du composant ou dans le fichier CSS global de l'application */
+
+.table-left {
+  text-align: left;
+}

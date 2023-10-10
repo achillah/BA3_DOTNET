@@ -1,0 +1,33 @@
+<!-- home.component.html -->
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Competence PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+    <div class="navbar-right">
+      <button class="btn btn-gray" (click)="navigateToAddCompetence()">Nouvelle Competence</button>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+        <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let competence of competences">
+          <td>{{ competence.name }}</td>
+          <td>
+                      <button class="btn btn-primary" (click)="navigateToEditCompetence(competence.id)">Modifier</button>
+                      <button class="btn btn-danger" (click)="onDelete(competence)">Supprimer</button>
+                  </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

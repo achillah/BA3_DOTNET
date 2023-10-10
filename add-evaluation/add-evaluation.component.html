@@ -1,0 +1,44 @@
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Add Evaluation PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToEvaluation()">Evaluation Page</button>
+    </div>
+  </nav>
+
+
+<div class="container mt-4">
+    <h2>Ajouter une nouvelle Evaluation</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Session :</label>
+        <input type="text" class="form-control" id="session" [(ngModel)]="newEvaluation.session" name="session" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Mois :</label>
+        <input type="number" class="form-control" id="mois" [(ngModel)]="newEvaluation.mois" name="mois" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Type :</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="newEvaluation.type" name="type" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Note Final :</label>
+        <input type="text" class="form-control" id="noteFinal" [(ngModel)]="newEvaluation.noteFinal" name="noteFinal" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Pourcentage Final :</label>
+        <input type="number" class="form-control" id="pourcentageFinal" [(ngModel)]="newEvaluation.pourcentageFinal" name="pourcentageFinal" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Pourcentage Remediable :</label>
+        <input type="text" class="form-control" id="pourcentageRemediable" [(ngModel)]="newEvaluation.pourcentageRemediable" name="pourcentageRemediable" required>
+      </div>
+
+      <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+  

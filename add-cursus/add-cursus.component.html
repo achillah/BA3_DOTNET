@@ -1,0 +1,32 @@
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Add Cursus PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToCursus()">Cursus Page</button>
+    </div>
+  </nav>
+
+
+<div class="container mt-4">
+    <h2>Ajouter une nouveau Cursus</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom :</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="newCursus.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Implantation :</label>
+        <input type="text" class="form-control" id="implantation" [(ngModel)]="newCursus.implantation" name="implantation" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Telephone :</label>
+        <input type="text" class="form-control" id="telephone" [(ngModel)]="newCursus.telephone" name="telephone" required>
+      </div>
+      
+      <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+  

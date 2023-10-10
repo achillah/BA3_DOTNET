@@ -1,0 +1,18 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Edit Competence</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nom:</label>
+        <input type="text" class="form-control" [(ngModel)]="competence.name" name="name" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+  

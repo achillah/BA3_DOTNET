@@ -1,0 +1,32 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <p>Capacite PAGE</p>
+    <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+  </div>
+  <div class="navbar-right">
+    <button class="btn btn-gray" (click)="navigateToAddCapacite()">Nouvelle Capacite</button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let capacite of capacites">
+                  <td>{{ capacite.name }}</td>
+                  <td>
+                      <button class="btn btn-primary" (click)="navigateToEditCapacite(capacite.id)">Edit</button>
+                      <button class="btn btn-danger" (click)="onDelete(capacite)">Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

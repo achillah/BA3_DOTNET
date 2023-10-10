@@ -1,0 +1,37 @@
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Cursus PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToHome()">Home</button>
+    </div>
+    <div class="navbar-right">
+      <button class="btn btn-gray" (click)="navigateToAddCursus()">Nouveau Cursus</button>
+    </div>
+  </nav>
+
+  
+  <div class="container mt-4">
+    <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+        <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Implantation</th>
+          <th>Telephone</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Cursus of cursus">
+          <td>{{ Cursus.name }}</td>
+          <td>{{ Cursus.implantation }}</td>
+          <td>{{ Cursus.telephone }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="navigateToEditCursus(Cursus.id)">Edit</button>
+            <button class="btn btn-danger" (click)="onDelete(Cursus)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

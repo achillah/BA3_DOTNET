@@ -1,0 +1,41 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <p>Ajouter Enseignant</p>
+    <button class="btn btn-gray" (click)="navigateToEnseignant()">Enseignant Page</button>
+  </div>
+</nav>
+
+
+<div class="container mt-4">
+  <h2>Ajouter un nouvel enseignant</h2>
+  <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="lastname">Nom de famille :</label>
+          <input type="text" class="form-control" id="lastname" [(ngModel)]="newEnseignant.lastname" name="lastname" required>
+      </div>
+
+      <div class="form-group">
+          <label for="firstname">Prénom :</label>
+          <input type="text" class="form-control" id="firstname" [(ngModel)]="newEnseignant.firstname" name="firstname" required>
+      </div>
+
+      <div class="form-group">
+          <label for="email">Email :</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="newEnseignant.email" name="email" required>
+      </div>
+
+      <div class="form-group">
+          <label for="activites">Activités d'apprentissage :</label>
+          <select multiple class="form-control" [(ngModel)]="selectedActivites" name="activites">
+              <option *ngFor="let activite of activiteApprentissages" [ngValue]="activite">{{ activite.name }}</option>
+          </select>
+      </div>
+
+      <div *ngIf="duplicateActiviteError" class="alert alert-danger">{{ duplicateActiviteErrorMessage }}</div>
+
+      <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+  </form>
+</div>

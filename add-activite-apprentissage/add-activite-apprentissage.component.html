@@ -1,0 +1,25 @@
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+      <p>Add Activite Apprentissage PAGE</p>
+      <button class="btn btn-gray" (click)="navigateToActiviteApprentissage()">Activite Apprentissage Page</button>
+    </div>
+  </nav>
+
+<!-- info-ue.component.html -->
+
+<div class="container mt-4">
+    <h2>Ajouter une nouvelle activite d'apprentissage</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom :</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="newActiviteApprentissage.name" name="name" required>
+      </div>
+      
+      <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+  
